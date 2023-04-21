@@ -9,11 +9,12 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const pages = [
-  { title: "Home", rath: "/" },
-  { title: "New Blog", rath: "/Newblog" },
-  { title: "About", rath: "/About" },
+  { title: "Home", path: "/" },
+  { title: "New Blog", path: "/new" },
+  { title: "About", path: "/about" },
 ];
 
 const Navbar = () => {
@@ -80,9 +81,11 @@ const Navbar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.title} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page.title}</Typography>
-                </MenuItem>
+                <Link to={page.path} key={page.title}>
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page.title}</Typography>
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
@@ -107,13 +110,14 @@ const Navbar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Button
-                key={page.title}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page.title}
-              </Button>
+              <Link to={page.path} key={page.title}>
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  {page.title}
+                </Button>
+              </Link>
             ))}
           </Box>
         </Toolbar>
