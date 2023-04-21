@@ -1,6 +1,6 @@
-import About from "./About";
-import NewBlog from "./NewBlog";
-import NotFoundPage from "./NotFoundPage";
+import About from "./components/About";
+import NewBlog from "./components/NewBlog";
+import NotFoundPage from "./components/NotFoundPage";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";

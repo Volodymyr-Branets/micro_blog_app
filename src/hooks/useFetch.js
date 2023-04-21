@@ -6,22 +6,24 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(url)
-      .then((res) => {
-        if (!res.ok) {
-          throw Error("Could not download data from server");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setData(data);
-        setIsLoading(false);
-        setError(null);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setIsLoading(false);
-      });
+    setTimeout(() => {
+      fetch(url)
+        .then((res) => {
+          if (!res.ok) {
+            throw Error("Could not download data from server");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setData(data);
+          setIsLoading(false);
+          setError(null);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setIsLoading(false);
+        });
+    }, 1000);
   }, [url]);
 
   return { data, isLoading, error };
