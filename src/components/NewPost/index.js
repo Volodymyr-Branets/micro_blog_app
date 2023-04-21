@@ -16,7 +16,14 @@ const NewPost = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const post = { title, postText, author };
-    console.log(post);
+
+    fetch("http://localhost:8000/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(post),
+    }).then(() => {
+      console.log("new post aded");
+    });
   };
 
   return (
