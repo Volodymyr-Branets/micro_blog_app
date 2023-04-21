@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/new" element={<NewPost />} />
         <Route path="/about" element={<About />} />
-        <Route path="/blogs/:id" element={<PostDetails />} />
+        <Route path="/posts/:id" element={<PostDetails />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
