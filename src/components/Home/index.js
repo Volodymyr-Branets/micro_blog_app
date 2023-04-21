@@ -1,20 +1,20 @@
-import BlogList from "../BlogList";
+import PostsList from "../PostsList";
 import useFetch from "../../hooks/useFetch";
 
 const Home = () => {
   const {
-    data: blogPosts,
+    data: posts,
     isLoading,
     error,
-  } = useFetch("http://localhost:8000/blogPosts");
+  } = useFetch("http://localhost:8000/posts");
 
   return (
     <div>
-      <h2>Blog Posts</h2>
+      <h2>Blog posts</h2>
       <hr />
       {error && <div>{error}</div>}
       {isLoading && <div>Loading...</div>}
-      {blogPosts && <BlogList blogPosts={blogPosts} />}
+      {posts && <PostsList posts={posts} />}
     </div>
   );
 };

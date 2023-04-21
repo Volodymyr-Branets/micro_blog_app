@@ -5,8 +5,8 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-const BlogList = ({ blogPosts }) => {
-  return blogPosts.map((post) => {
+const PostsList = ({ posts }) => {
+  return posts.map((post) => {
     return (
       <Box sx={{ minWidth: 275 }} key={post.id}>
         <Card variant="outlined">
@@ -38,4 +38,4 @@ const BlogList = ({ blogPosts }) => {
   });
 };
 
-export default BlogList;
+export default PostsList;

@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 const pages = [
   { title: "Home", path: "/" },
-  { title: "New Blog", path: "/new" },
+  { title: "New Post", path: "/new" },
   { title: "About", path: "/about" },
 ];
 
@@ -48,7 +48,7 @@ const Navbar = () => {
               textDecoration: "none",
             }}
           >
-            BLOggy
+            My Blog
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -106,7 +106,7 @@ const Navbar = () => {
               textDecoration: "none",
             }}
           >
-            BLOggy
+            My Blog
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
