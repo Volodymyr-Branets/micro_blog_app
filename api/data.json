@@ -1,28 +1,40 @@
 {
   "posts": [
-  {
-    "title": "About project",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...",
-    "author": "mario",
-    "id": "1"
-  },
-  {
-    "title": "You to us...",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...",
-    "author": "luigie",
-    "id": "2"
-  },
-  {
-    "title": "Be cool programmer",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...",
-    "author": "mario",
-    "id": "3"
-  },
-  {
-    "title": "Nine cast production",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...",
-    "author": "admin",
-    "id": "4"
-  }
-]
+    {
+      "title": "About project",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...",
+      "author": "mario",
+      "id": "1"
+    },
+    {
+      "title": "You to us...",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...",
+      "author": "luigie",
+      "id": "2"
+    },
+    {
+      "title": "Be cool programmer",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...",
+      "author": "mario",
+      "id": "3"
+    },
+    {
+      "title": "Nine cast production",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...",
+      "author": "admin",
+      "id": "4"
+    },
+    {
+      "title": "hello",
+      "postText": "text for post",
+      "author": "admin",
+      "id": "AN0pE4-"
+    },
+    {
+      "title": "test",
+      "postText": "test",
+      "author": "test",
+      "id": "A7vxU4y"
+    }
+  ]
 }

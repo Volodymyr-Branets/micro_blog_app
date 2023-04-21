@@ -12,16 +12,18 @@ const NewPost = () => {
   const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
   const [author, setAuthor] = useState("");
+  const [isPending, setIsPending] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const post = { title, postText, author };
-
+    setIsPending(true);
     fetch("http://localhost:8000/posts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(post),
     }).then(() => {
+      setIsPending(false);
       console.log("new post aded");
     });
   };
@@ -77,9 +79,16 @@ const NewPost = () => {
                 />
               </Grid>
               <Grid xs={12} item>
-                <Button type="submit" variant="contained">
-                  Add post
-                </Button>
+                {!isPending && (
+                  <Button type="submit" variant="contained">
+                    Add post
+                  </Button>
+                )}
+                {isPending && (
+                  <Button type="submit" variant="contained" disabled>
+                    Saving...
+                  </Button>
+                )}
               </Grid>
             </Grid>
           </form>
