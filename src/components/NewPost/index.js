@@ -7,12 +7,14 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const NewPost = () => {
   const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
   const [author, setAuthor] = useState("");
   const [isPending, setIsPending] = useState(false);
+  let navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,6 +27,7 @@ const NewPost = () => {
     }).then(() => {
       setIsPending(false);
       console.log("new post aded");
+      navigate("/");
     });
   };
 
