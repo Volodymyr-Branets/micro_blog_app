@@ -1,12 +1,6 @@
 {
   "posts": [
     {
-      "title": "About project",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...",
-      "author": "mario",
-      "id": "1"
-    },
-    {
       "title": "You to us...",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...",
       "author": "luigie",
@@ -23,6 +17,12 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...",
       "author": "admin",
       "id": "4"
+    },
+    {
+      "title": "hello",
+      "postText": "123",
+      "author": "admin",
+      "id": "UNOeo9v"
     }
   ]
 }

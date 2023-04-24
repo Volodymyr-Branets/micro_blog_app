@@ -1,5 +1,6 @@
 import PostsList from "../PostsList";
 import useFetch from "../../hooks/useFetch";
+import { Box, Typography } from "@mui/material";
 
 const Home = () => {
   const {
@@ -10,11 +11,14 @@ const Home = () => {
 
   return (
     <div>
-      <h2>Blog posts</h2>
-      <hr />
-      {error && <div>{error}</div>}
-      {isLoading && <div>Loading...</div>}
-      {posts && <PostsList posts={posts} />}
+      <Typography align="center" component="h2" variant="h4" my={2}>
+        Blog posts
+      </Typography>
+      <Box>
+        {error && <div>{error}</div>}
+        {isLoading && <div>Loading...</div>}
+        {posts && <PostsList posts={posts} />}
+      </Box>
     </div>
   );
 };

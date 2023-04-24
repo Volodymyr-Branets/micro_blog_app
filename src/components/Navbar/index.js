@@ -3,13 +3,17 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
 
 const pages = [
   { title: "Home", path: "/" },
@@ -18,110 +22,112 @@ const pages = [
 ];
 
 const Navbar = () => {
-  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [openFlag, setOpenFlag] = useState(false);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
+  const navigate = useNavigate();
+
+  const handleOpenDrawer = () => {
+    setOpenFlag(true);
   };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  const handleCloseDrawer = () => {
+    setOpenFlag(false);
+  };
+
+  const handleNavigate = (path) => {
+    navigate(path);
   };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            My Blog
-          </Typography>
+    <AppBar position="static" component="nav">
+      <Toolbar>
+        <Typography
+          variant="h4"
+          sx={{
+            flexGrow: 1,
+            mr: 2,
+            display: { xs: "none", md: "flex" },
+            fontFamily: "Dancing Script",
+          }}
+          onClick={() => navigate("/")}
+        >
+          my blog
+        </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <Link to={page.path} key={page.title}>
-                  <MenuItem onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page.title}</Typography>
-                  </MenuItem>
-                </Link>
-              ))}
-            </Menu>
-          </Box>
-          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
+        <Box
+          sx={{
+            flexGrow: 1,
+            display: { xs: "flex", md: "none" },
+          }}
+        >
+          <IconButton
+            size="large"
+            aria-label="account of current user"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleOpenDrawer}
+            color="inherit"
           >
-            My Blog
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Link to={page.path} key={page.title}>
-                <Button
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  {page.title}
-                </Button>
-              </Link>
-            ))}
-          </Box>
-        </Toolbar>
-      </Container>
+            <MenuIcon />
+          </IconButton>
+
+          <SwipeableDrawer
+            anchor="left"
+            open={openFlag}
+            onClose={handleCloseDrawer}
+            onOpen={handleOpenDrawer}
+          >
+            <Box onClick={handleCloseDrawer}>
+              <List>
+                {pages.map((page) => (
+                  <div key={page.title}>
+                    <ListItem>
+                      <ListItemButton>
+                        <ListItemText
+                          primary={page.title}
+                          onClick={() => handleNavigate(page.path)}
+                        />
+                      </ListItemButton>
+                    </ListItem>
+                    <Divider />
+                  </div>
+                ))}
+              </List>
+            </Box>
+          </SwipeableDrawer>
+        </Box>
+
+        <Typography
+          variant="h4"
+          sx={{
+            mr: 2,
+            flexGrow: 1,
+            display: { xs: "flex", md: "none" },
+            fontFamily: "Dancing Script",
+          }}
+          onClick={() => navigate("/")}
+        >
+          my blog
+        </Typography>
+        <Box
+          sx={{
+            display: { xs: "none", md: "block" },
+          }}
+        >
+          {pages.map((page) => (
+            <Button
+              key={page.title}
+              onClick={() => handleNavigate(page.path)}
+              sx={{
+                my: 2,
+                color: "black",
+              }}
+            >
+              {page.title}
+            </Button>
+          ))}
+        </Box>
+      </Toolbar>
     </AppBar>
   );
 };
