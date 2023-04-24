@@ -1,5 +1,6 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
+import { Button } from "@mui/material";
 
 const PostDetails = () => {
   const { id } = useParams();
@@ -8,6 +9,15 @@ const PostDetails = () => {
     isLoading,
     error,
   } = useFetch("http://localhost:8000/posts/" + id);
+  let navigate = useNavigate();
+
+  const handleDelete = () => {
+    fetch("http://localhost:8000/posts/" + id, {
+      method: "DELETE",
+    }).then(() => {
+      navigate("/");
+    });
+  };
 
   return (
     <div>
@@ -19,6 +29,7 @@ const PostDetails = () => {
           <p>Written by {post.author}</p>
           <hr />
           <div>{post.text}</div>
+          <Button onClick={handleDelete}>Delete</Button>
         </article>
       )}
     </div>
