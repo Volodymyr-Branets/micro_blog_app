@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Card,
   CardContent,
@@ -32,7 +33,7 @@ const NewPost = () => {
   };
 
   return (
-    <div>
+    <Box>
       <Typography
         component="h2"
         variant="h4"
@@ -43,66 +44,68 @@ const NewPost = () => {
         Add new post
       </Typography>
       <Card
+        variant="outlined"
         sx={{
+          border: "none",
           maxWidth: 500,
           mx: "auto",
         }}
       >
-        <CardContent>
-          <form onSubmit={handleSubmit}>
-            <Grid container spacing={1}>
-              <Grid xs={12} item>
-                <TextField
-                  label="Post title"
-                  placeholder="Enter post title"
-                  variant="outlined"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  fullWidth
-                  required
-                />
-              </Grid>
-              <Grid xs={12} item>
-                <TextField
-                  label="Post text:"
-                  multiline
-                  rows={4}
-                  placeholder="Write post text"
-                  variant="outlined"
-                  value={postText}
-                  onChange={(e) => setPostText(e.target.value)}
-                  fullWidth
-                  required
-                />
-              </Grid>
-              <Grid xs={12} item>
-                <TextField
-                  label="Author name"
-                  placeholder="Enter author name"
-                  variant="outlined"
-                  value={author}
-                  onChange={(e) => setAuthor(e.target.value)}
-                  fullWidth
-                  required
-                />
-              </Grid>
-              <Grid xs={12} item>
-                {!isPending && (
-                  <Button type="submit" variant="contained">
-                    Add post
-                  </Button>
-                )}
-                {isPending && (
-                  <Button type="submit" variant="contained" disabled>
-                    Saving...
-                  </Button>
-                )}
-              </Grid>
+        <CardContent component="form" onSubmit={handleSubmit}>
+          <Grid container spacing={2}>
+            <Grid xs={12} item>
+              <TextField
+                label="Post title"
+                placeholder="Enter post title"
+                variant="outlined"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                fullWidth
+                required
+                autoComplete="off"
+              />
             </Grid>
-          </form>
+            <Grid xs={12} item>
+              <TextField
+                label="Post text:"
+                multiline
+                rows={5}
+                placeholder="Write post text"
+                variant="outlined"
+                value={postText}
+                onChange={(e) => setPostText(e.target.value)}
+                fullWidth
+                required
+              />
+            </Grid>
+            <Grid xs={12} item>
+              <TextField
+                label="Author name"
+                placeholder="Enter author name"
+                variant="outlined"
+                value={author}
+                onChange={(e) => setAuthor(e.target.value)}
+                fullWidth
+                required
+                autoComplete="off"
+              />
+            </Grid>
+            <Grid xs={12} item>
+              {!isPending && (
+                <Button type="submit" variant="contained">
+                  Add post
+                </Button>
+              )}
+              {isPending && (
+                <Button type="submit" variant="contained" disabled>
+                  Saving...
+                </Button>
+              )}
+            </Grid>
+          </Grid>
         </CardContent>
       </Card>
-    </div>
+    </Box>
   );
 };
 

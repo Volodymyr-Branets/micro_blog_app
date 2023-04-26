@@ -39,7 +39,7 @@ const PostDetails = () => {
           </Typography>
           <Divider />
           <Typography component="p" my={2}>
-            {post.text}
+            {post.postText}
           </Typography>
           <Button variant="contained" onClick={handleDelete}>
             Delete
