@@ -1,6 +1,7 @@
 import PostsList from "../PostsList";
 import useFetch from "../../hooks/useFetch";
 import { Box, Typography } from "@mui/material";
+import Loading from "../Loading";
 
 const Home = () => {
   const {
@@ -10,16 +11,22 @@ const Home = () => {
   } = useFetch("http://localhost:8000/posts");
 
   return (
-    <div>
-      <Typography component="h2" variant="title" align="center" my={2}>
+    <Box>
+      <Typography
+        component="h2"
+        variant="h4"
+        align="center"
+        my={2}
+        color="secondary.dark"
+      >
         Blog posts
       </Typography>
       <Box>
         {error && <div>{error}</div>}
-        {isLoading && <div>Loading...</div>}
+        {isLoading && <Loading />}
         {posts && <PostsList posts={posts} />}
       </Box>
-    </div>
+    </Box>
   );
 };
 

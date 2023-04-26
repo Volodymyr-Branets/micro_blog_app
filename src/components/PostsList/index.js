@@ -26,6 +26,7 @@ const PostsList = ({ posts }) => {
               {post.title}
             </Typography>
             <Typography
+              component="p"
               sx={{ fontSize: 14 }}
               color="text.secondary"
               gutterBottom

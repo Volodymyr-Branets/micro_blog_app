@@ -21,12 +21,6 @@ const theme = createTheme({
     fontWeightRegular: 500,
     fontWeightMedium: 600,
     fontWeightBold: 700,
-    title: {
-      fontFamily: "Quicksand",
-      fontWeight: 500,
-      fontSize: "1.75rem",
-      color: "#ef6c00",
-    },
   },
   components: {
     MuiDrawer: {

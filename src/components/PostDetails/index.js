@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
-import { Button } from "@mui/material";
+import { Box, Button, Divider, Typography } from "@mui/material";
+import Loading from "../Loading";
 
 const PostDetails = () => {
   const { id } = useParams();
@@ -20,19 +21,32 @@ const PostDetails = () => {
   };
 
   return (
-    <div>
-      {isLoading && <div>Loading...</div>}
+    <Box>
+      {isLoading && <Loading />}
       {error && <div> {error} </div>}
       {post && (
-        <article>
-          <h2>{post.title}</h2>
-          <p>Written by {post.author}</p>
-          <hr />
-          <div>{post.text}</div>
-          <Button onClick={handleDelete}>Delete</Button>
-        </article>
+        <Box component="article" m={2}>
+          <Typography component="h2" variant="h4" color="secondary.dark">
+            {post.title}
+          </Typography>
+          <Typography
+            component="p"
+            sx={{ fontSize: 14 }}
+            color="text.secondary"
+            gutterBottom
+          >
+            Written by {post.author}
+          </Typography>
+          <Divider />
+          <Typography component="p" my={2}>
+            {post.text}
+          </Typography>
+          <Button variant="contained" onClick={handleDelete}>
+            Delete
+          </Button>
+        </Box>
       )}
-    </div>
+    </Box>
   );
 };
 

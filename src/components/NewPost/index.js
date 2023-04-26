@@ -33,10 +33,15 @@ const NewPost = () => {
 
   return (
     <div>
-      <Typography component="h2" variant="title" align="center" my={2}>
+      <Typography
+        component="h2"
+        variant="h4"
+        align="center"
+        my={2}
+        color="secondary.dark"
+      >
         Add new post
       </Typography>
-      <hr />
       <Card
         sx={{
           maxWidth: 500,
