@@ -33,7 +33,7 @@ const NewPost = () => {
 
   return (
     <div>
-      <Typography align="center" variant="h2">
+      <Typography component="h2" variant="title" align="center" my={2}>
         Add new post
       </Typography>
       <hr />

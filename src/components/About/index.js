@@ -1,8 +1,12 @@
+import { Divider, Typography } from "@mui/material";
+
 const About = () => {
   return (
     <div>
-      <h2>About</h2>
-      <hr />
+      <Typography component="h2" variant="title" align="center" my={2}>
+        About
+      </Typography>
+      <Divider />
     </div>
   );
 };

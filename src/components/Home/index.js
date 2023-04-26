@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
     <div>
-      <Typography align="center" component="h2" variant="h4" my={2}>
+      <Typography component="h2" variant="title" align="center" my={2}>
         Blog posts
       </Typography>
       <Box>
