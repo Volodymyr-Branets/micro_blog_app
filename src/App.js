@@ -6,12 +6,14 @@ import { Routes, Route } from "react-router-dom";
 import NewPost from "./components/NewPost";
 import PostDetails from "./components/PostDetails";
 import { ThemeProvider, createTheme } from "@mui/material";
-import { blueGrey, orange } from "@mui/material/colors";
+import { brown, teal } from "@mui/material/colors";
 
 const theme = createTheme({
   palette: {
-    primary: orange,
-    secondary: blueGrey,
+    primary: {
+      main: teal[400],
+    },
+    secondary: brown,
   },
   typography: {
     fontFamily: "Quicksand",
@@ -30,8 +32,7 @@ const theme = createTheme({
     MuiDrawer: {
       styleOverrides: {
         paper: {
-          backgroundColor: "orange",
-          color: "black",
+          backgroundColor: teal[400],
         },
       },
     },

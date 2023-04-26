@@ -62,7 +62,6 @@ const Navbar = () => {
         >
           <IconButton
             size="large"
-            aria-label="account of current user"
             aria-controls="menu-appbar"
             aria-haspopup="true"
             onClick={handleOpenDrawer}
@@ -81,11 +80,14 @@ const Navbar = () => {
               <List>
                 {pages.map((page) => (
                   <div key={page.title}>
-                    <ListItem>
+                    <ListItem divider>
                       <ListItemButton>
                         <ListItemText
                           primary={page.title}
                           onClick={() => handleNavigate(page.path)}
+                          sx={{
+                            color: "primary.contrastText",
+                          }}
                         />
                       </ListItemButton>
                     </ListItem>
@@ -116,12 +118,10 @@ const Navbar = () => {
         >
           {pages.map((page) => (
             <Button
+              color="inherit"
               key={page.title}
               onClick={() => handleNavigate(page.path)}
-              sx={{
-                my: 2,
-                color: "black",
-              }}
+              sx={{ textTransform: "none" }}
             >
               {page.title}
             </Button>
