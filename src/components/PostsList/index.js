@@ -8,13 +8,21 @@ const PostsList = ({ posts }) => {
   return posts.map((post) => {
     return (
       <Box sx={{ minWidth: 275 }} key={post.id}>
-        <Card variant="outlined">
+        <Card
+          variant="outlined"
+          sx={{
+            maxWidth: 800,
+            margin: "auto",
+            px: 2,
+            border: "none",
+          }}
+        >
           <CardContent
             component={Link}
             to={`/posts/${post.id}`}
             sx={{ textDecoration: "none" }}
           >
-            <Typography variant="h5" component="div">
+            <Typography variant="h5" component="div" color="primary.dark">
               {post.title}
             </Typography>
             <Typography

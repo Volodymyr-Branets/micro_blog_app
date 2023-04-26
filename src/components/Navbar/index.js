@@ -111,7 +111,7 @@ const Navbar = () => {
         </Typography>
         <Box
           sx={{
-            display: { xs: "none", md: "block" },
+            display: { xs: "none", md: "flex" },
           }}
         >
           {pages.map((page) => (
